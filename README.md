@@ -288,6 +288,26 @@ Once you finish the assignment, submit a URL link to your repository or your pul
   ```
 
 
-![img.png](img.png)
+Las tablas que he creado para el ejercicio 1 son
+
+````sql
+CREATE TABLE task (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    due_date DATE,
+    status BOOLEAN NOT NULL
+);
+
+CREATE TABLE billable_task (
+    id BIGINT PRIMARY KEY,
+    hourly_rate DECIMAL(10, 2),
+    FOREIGN KEY (id) REFERENCES task(id)
+);
+
+CREATE TABLE internal_task (
+    id BIGINT PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES task(id)
+);
+````
 
 </details>
