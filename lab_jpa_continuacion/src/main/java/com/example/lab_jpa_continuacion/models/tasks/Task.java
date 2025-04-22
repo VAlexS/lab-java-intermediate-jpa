@@ -6,7 +6,6 @@ import java.sql.Date;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "Task")
 public abstract class Task {
 
     @Id
