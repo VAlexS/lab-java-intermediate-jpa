@@ -37,6 +37,31 @@ Once you finish the assignment, submit a URL link to your repository or your pul
 
 3. List 3 tasks that can be accomplished with native SQL that you cannot do with JPQL. Explain why you would choose to use native SQL over JPQL for these specific tasks.
 
+
+Las 3 tareas más comunes por las que es posible usar SQL nativo al no ser posoble hacerlo con JPQL son:
+ 
+    1) Manipulación de datos (INSERT, UPDATE y DELETE)
+        
+        Ya que JPQL realmente tiene como proposito realizar consultas y recuperar datos. Pero no permite realizar operaciones directas para manipular
+        registros en la base de datos.
+    
+    2) Uso de funciones específicas del proveedor de base de datos 
+        
+        Dado que JPQL es independiente del proveedor de base de datos, por lo que no aprovechar funciones específicas como AVG() para obtener el
+        promedio o SUM() para obtener el sumatorio
+
+    3) Optimización avanzada con índices y sugerencias
+
+        JPQL no permite incluir sugerencias de optimización específicas, como el uso de índices para analizar la eficiencia de las consultas.
+
+   Motivos para usar SQL nativo en estos casos
+    
+    - Es necesario un control detallado sobre las operaciones en la base de datos.
+
+    - Estás trabajando con características específicas de un proveedor de base de datos.
+    
+    - Se busca optimizar el rendimiento de las consultas a nivel más granular.
+
 <br>
 
 ## FAQs
