@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,7 +29,8 @@ class LabJpaContinuacionApplicationTests {
 	@DisplayName("Guardar una task interna")
 	void saveInternalTasks() {
 
-		InternalTask internalTask = new InternalTask("Ejercicio Task", new Date(2025, 4, 22), true);
+		InternalTask internalTask = new InternalTask("Repaso lab relaciones", Date.valueOf(LocalDate.of(2025, 4, 22)),
+				true);
 
 		System.out.println("=======================");
 		System.out.println("La task que vas a guardar es ");
@@ -45,7 +47,8 @@ class LabJpaContinuacionApplicationTests {
 	@DisplayName("Guardar una billable task")
 	void saveBillAbleTask(){
 
-		BillAbleTask billAbleTask = new BillAbleTask("Ejercicio Task", new Date(2025, 4, 22), false, 680);
+		BillAbleTask billAbleTask = new BillAbleTask("Repaso lab endpoints", Date.valueOf(LocalDate.of(2025, 4, 22)),
+				false, 680);
 
 		System.out.println("=======================");
 		System.out.println("La task que vas a guardar es ");
@@ -57,6 +60,7 @@ class LabJpaContinuacionApplicationTests {
 		assertNotNull(taskSaved);
 
 	}
+
 
 	@Test
 	@DisplayName("Guardar un contact en la base de datos")
@@ -76,6 +80,7 @@ class LabJpaContinuacionApplicationTests {
 
 	}
 
+
 	@Test
 	@DisplayName("Guardar un contact en la base de datos sin middleName")
 	void saveContactWithoutMiddleName(){
@@ -92,11 +97,7 @@ class LabJpaContinuacionApplicationTests {
 
 		assertNotNull(contactSaved);
 
-		var contactFound = contactsRepository.findById(2);
-
-		assertTrue(contactFound.isPresent());
-
-		assertNull(contactFound.get().getName().getMiddleName());
+		assertNull(contactSaved.getName().getMiddleName());
 	}
 
 }

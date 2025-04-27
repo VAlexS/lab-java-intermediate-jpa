@@ -317,22 +317,37 @@ Las tablas que he creado para el ejercicio 1 son
 
 ````sql
 CREATE TABLE task (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     due_date DATE,
     status BOOLEAN NOT NULL
 );
 
 CREATE TABLE billable_task (
-    id BIGINT PRIMARY KEY,
+    id INT PRIMARY KEY,
     hourly_rate DECIMAL(10, 2),
     FOREIGN KEY (id) REFERENCES task(id)
 );
 
 CREATE TABLE internal_task (
-    id BIGINT PRIMARY KEY,
+    id INT PRIMARY KEY,
     FOREIGN KEY (id) REFERENCES task(id)
 );
 ````
+
+Por otro lado, para la parte de tasks, una vez ejecutado los test, tenemos estas tablas.
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+En cuanto a los contacts, con una tabla es suficiente, ya que parte de las columnas viene de clases embebidas. También se podría considerar tablas anidadas,
+es decir, una tabla dentro de otra tabla. Tras ejecutar los test, tenemos esta tabla.
+
+![img_4.png](img_4.png)
+
+
 
 </details>

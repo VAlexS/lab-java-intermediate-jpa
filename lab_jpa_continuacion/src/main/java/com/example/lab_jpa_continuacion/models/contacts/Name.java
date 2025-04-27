@@ -3,7 +3,7 @@ package com.example.lab_jpa_continuacion.models.contacts;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
-@Embeddable
+@Embeddable //esto indica que va a estar anidado en una tabla ya existente, no es una entidad como tal
 public class Name {
 
     @Column(name = "first_name", nullable = false) //si no especifico el nullable, por defecto es true
